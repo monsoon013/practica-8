@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "tipo": "primero",
+        "nombre": "Ensalada china",
+        "precio": 2.80
+    },
+    {
+        "id": 2,
+        "tipo": "segundo",
+        "nombre": "Carrilleras con patatas al horno",
+        "precio": 7.50
+    },
+    {
+        "id": 3,
+        "tipo": "postre",
+        "nombre": "Tarta de queso vasca",
+        "precio": 3.00
+    },
+    {
+        "id": 4,
+        "tipo": "primero",
+        "nombre": "Sopa de cocido",
+        "precio": 4.90
+    },
+    {
+        "id": 5,
+        "tipo": "segundo",
+        "nombre": "Bacalao a la portuguesa",
+        "precio": 9.40
+    },
+    {
+        "id": 6,
+        "tipo": "postre",
+        "nombre": "Mousse de chocolate",
+        "precio": 3.00
+    }
+]
