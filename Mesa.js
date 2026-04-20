@@ -6,12 +6,11 @@ export class Mesa {
 
     constructor (){
         this.consumiciones = [];
-        this.libre = false;
+        this.libre = true;
     }
 
-    getConsumiciones (){
-        return this.#consumiciones;
-    }
+    getLibre(){ return this.#libre;}
+    getConsumiciones (){ return this.#consumiciones;}
 
     dividirConsumiciones(precioMenu){
         const totalCons = this.#consumiciones.reduce((t, c) => {
@@ -85,7 +84,7 @@ export class Mesa {
                 }
             }catch (duende) {
                 console.log("ERROR: " + duende.stack);// revisar
-                
+
             }
 
         }
