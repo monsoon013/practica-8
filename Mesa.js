@@ -84,7 +84,8 @@ export class Mesa {
                     } default : console.log("ERROR: No existe esa opción.");
                 }
             }catch (duende) {
-                console.log("ERROR: " + duende.stack);
+                console.log("ERROR: " + duende.stack);// revisar
+                
             }
 
         }
