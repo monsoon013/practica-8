@@ -34,5 +34,23 @@
         "tipo": "postre",
         "nombre": "Mousse de chocolate",
         "precio": 3.00
+    },
+    {
+        "id": 7,
+        "tipo": "bebida",
+        "nombre": "Agua",
+        "precio": 1.5
+    },
+    {
+        "id": 8,
+        "tipo": "bebida",
+        "nombre": "Fresh cola",
+        "precio": 2.5
+    },
+    {
+        "id": 9,
+        "tipo": "bebida",
+        "nombre": "Rioja",
+        "precio": 2.5
     }
 ]
