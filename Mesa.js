@@ -49,7 +49,8 @@ export class Mesa {
 
     }
 
-    menu(mesa, precioMenuDia){
+
+    /*menu(mesa, precioMenuDia){
         let count = 0;
 
         while(count < 3){
@@ -88,8 +89,9 @@ export class Mesa {
             }
 
         }
-    };
+    };*/
 
 
                        
 }
+    module.exports = Mesa;

@@ -1,17 +1,28 @@
-import { carta }  from './carta.json';
+const fs = require('fs/promises');
+const Mesa = require('./Mesa.js');
 
 export class Restaurante {
     #numMesas;
     #precioMenu;
 
 
-    constructor(numMesas, precioMenu, carta){
-        this.numMesas = numMesas;
+    constructor(numMesas, precioMenu, archivoCarta){
+        this.mesas = Array.from({length:numMesas}, () => new Mesa());
         this.precioMenu = precioMenu;
-        this.carta = carta;
+        this.carta = [];
+        this.archivoCarta = archivoCarta;
     }
 
-    mostrarMesas(Mesa){
+    async cargarCarta(){
+        try{
+            const datos = await fs.readFile(this.archivoCarta);
+            this.carta = JSON.parse(datos);
+        }catch(duende){
+            console.error('Error al cargar la carta: ', duende);
+        }
+    }
+
+    /*mostrarMesas(Mesa){
         
     }
     menuPrinc (){
@@ -31,9 +42,10 @@ export class Restaurante {
             }
 
         }
-    }
+    }*/
 
 
 
     
 }
+module.exports = Restaurante;
