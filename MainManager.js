@@ -104,6 +104,9 @@ export class MainManager {
 
         while(!salirMesa){
             console.log("Bievenidx a la mesa " + numeroMesa );
+            console.log("1. Pedir consumición" +
+                        "\n2. Ver cuenta" +
+                        "\n3. Salir de la mesa");
                 const count = (await this.rl.question("¿Qué quieres hacer? \n")).trim();
                 switch(count){
                     case '1': {

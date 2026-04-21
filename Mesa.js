@@ -26,7 +26,7 @@ export class Mesa {
             totalCons.bebida.length
         );
 
-        for (let i = 0; i < numMenus.length; i++){
+        for (let i = 0; i < numMenus; i++){
             menus.push({
                 cons:[
                     totalCons.primero.shift(), //shift: saca la posicion 0 y cambia por el siguiente
