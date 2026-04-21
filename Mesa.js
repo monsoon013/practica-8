@@ -1,21 +1,21 @@
-import { carta } from './carta.json';
+
 
 export class Mesa {
-    #consumiciones;
-    #libre;
-
     constructor (){
         this.consumiciones = [];
         this.libre = true;
     }
+    getLibre(){ return this.libre;}
+    getConsumiciones (){ return this.consumiciones;}
 
-    getLibre(){ return this.#libre;}
-    getConsumiciones (){ return this.#consumiciones;}
+    anadirConsumicion(consumicion){
+        this.consumiciones.push(consumicion);
+    };
 
     dividirConsumiciones(precioMenu){
-        const totalCons = this.#consumiciones.reduce((t, c) => {
+        const totalCons = this.consumiciones.reduce((t, c) => {
             t[c.tipo].push(c);
-            return c;
+            return t;
         }, { primero: [], segundo: [], postre: [], bebida: []});
 
         const menus = [];
@@ -26,7 +26,7 @@ export class Mesa {
             totalCons.bebida.length
         );
 
-        for (let i = 0; i <= numMenus.length; i++){
+        for (let i = 0; i < numMenus.length; i++){
             menus.push({
                 cons:[
                     totalCons.primero.shift(), //shift: saca la posicion 0 y cambia por el siguiente
@@ -42,56 +42,12 @@ export class Mesa {
         const totalMenus = menus.length * precioMenu;
         const totalInd = restantes.reduce((sum, c) => sum + c.precio, 0);
 
-        console.log("Total Menús: " + totalMenus +
-                    "\nTotal Individuales: " + totalInd + 
-                    "\n*** PRECIO TOTAL A PAGAR -  " + totalInd + totalMenus + " ***" 
-        );
+        return {
+            totalMenus,
+            totalInd, 
+            totalFinal: totalMenus + totalInd
+        }
 
     }
-
-
-    /*menu(mesa, precioMenuDia){
-        let count = 0;
-
-        while(count < 3){
-            console.log("Bievenidx a la mesa " + mesa );
-            try {
-                count = prompt("¿Qué quieres hacer? \n");
-                switch(count){
-                    case 1: {
-                        console.log('### PEDIR CONSUMICIÓN ###');
-                        carta.map(c => {
-                        return "-----------------------------" +
-                                "\nConsumición: " + c.nombre +
-                                "\nTipo: "  + c.tipo +
-                                "\nPrecio: " + c.precio +
-                                "\n---------------------------"
-                        });
-                        let cons = prompt("¿Qué deseas? \n");
-                        carta.filter(c => {
-                            if ((cons.slice(0, 1).toUpperCase() + cons.slice(1).toLowerCase()) === c.nombre){
-                                this.#consumiciones.push(c);
-                            }
-                        })
-                        break;
-                    } case 2: {
-                        console.log('### CONSUMICIONES TOTALES ###');
-                        dividirConsumiciones(precioMenuDia);
-                        
-                    } case 3 :{
-                        console.log('Hasta pronto...');
-                        break;
-                    } default : console.log("ERROR: No existe esa opción.");
-                }
-            }catch (duende) {
-                console.log("ERROR: " + duende.stack);// revisar
-
-            }
-
-        }
-    };*/
-
-
-                       
 }
-    module.exports = Mesa;
+
